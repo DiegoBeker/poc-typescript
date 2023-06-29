@@ -1,4 +1,5 @@
 import express, { Request, Response } from "express";
+import "express-async-errors";
 import studentsRouter from "./routes/students.routes";
 import dotenv from "dotenv";
 
