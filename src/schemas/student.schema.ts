@@ -1,7 +1,7 @@
 import Joi from "joi";
-import { Student } from "@/protocols/index";
+import { CreateStudent } from "@/protocols/index";
 
-export const studentSchema = Joi.object<Student>({
+export const studentSchema = Joi.object<CreateStudent>({
   name: Joi.string().required(),
   email: Joi.string().email().required(),
   register: Joi.string().required(),
