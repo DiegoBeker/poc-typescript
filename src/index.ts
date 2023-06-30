@@ -1,7 +1,8 @@
 import express, { Request, Response } from "express";
 import "express-async-errors";
-import studentsRouter from "./routes/students.routes";
+import studentsRouter from "@/routes/students.routes";
 import dotenv from "dotenv";
+import errorHandlingMiddleware from "@/middlewares/errorHandler.middleware";
 
 dotenv.config();
 
@@ -13,5 +14,6 @@ app.get("/health", (req: Request, res: Response) => {
 });
 
 app.use(studentsRouter);
+app.use(errorHandlingMiddleware);
 
 app.listen(5000, () => console.log(`server is up and running`));

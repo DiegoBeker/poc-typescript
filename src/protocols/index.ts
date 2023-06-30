@@ -1,4 +1,5 @@
 export type Student = {
+    id: number,
     name: string,
     email:string,
     register: string,
@@ -6,3 +7,5 @@ export type Student = {
     age: number,
     isActive: boolean,
 };
+
+export type CreateStudent = Omit<Student, "id ">;

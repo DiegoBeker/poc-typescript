@@ -1,5 +1,5 @@
 import Joi from "joi";
-import { Student } from "protocols";
+import { Student } from "@/protocols/index";
 
 export const studentSchema = Joi.object<Student>({
   name: Joi.string().required(),
