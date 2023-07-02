@@ -9,5 +9,5 @@ studentsRouter.post("/students", validateSchema(studentSchema), studentsControll
 studentsRouter.get("/students", studentsController.findStudents);
 studentsRouter.delete("/students/:id", studentsController.deleteStudent);
 studentsRouter.put("/students/:id", validateSchema(studentSchema), studentsController.update)
-
+studentsRouter.get("/students/:id", studentsController.findStudentById);
 export default studentsRouter;

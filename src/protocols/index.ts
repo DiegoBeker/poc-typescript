@@ -9,3 +9,8 @@ export type Student = {
 };
 
 export type CreateStudent = Omit<Student, "id ">;
+
+export type ApplicationError = {
+    name: string;
+    message: string;
+  };

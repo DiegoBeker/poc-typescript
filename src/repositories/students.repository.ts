@@ -12,16 +12,16 @@ export async function createStudent(student: CreateStudent) {
     await db.query(query, [name, email, register, graduation, age, isActive]);
 }
 
-export async function findStudents(course:string ) {
+export async function findStudents(course: string) {
     let query = `SELECT * FROM students`;
     const queryParams = [];
 
-    if(course){
-        query+=` WHERE "graduation"=$1`;
+    if (course) {
+        query += ` WHERE "graduation"=$1`;
         queryParams.push(course);
     }
-    
-    const students = await db.query<Student>(query,queryParams);
+
+    const students = await db.query<Student>(query, queryParams);
 
     return students.rows;
 }
@@ -45,4 +45,22 @@ export async function update(id: number, student: CreateStudent) {
         WHERE id = $7
     `;
     await db.query(query, [name, email, register, graduation, age, isActive, id]);
+}
+
+export async function findStudentByEmail(email: string) {
+    const query = `SELECT * FROM students WHERE email=$1`;
+    const queryParams = [email];
+
+    const student = await db.query<Student>(query, queryParams);
+
+    return student.rows[0];
+}
+
+export async function findStudentById(id: number) {
+    const query = `SELECT * FROM students WHERE id=$1`;
+    const queryParams = [id];
+
+    const student = await db.query<Student>(query, queryParams);
+
+    return student.rows[0];
 }
